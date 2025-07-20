@@ -12,7 +12,9 @@ fun main(){
 //    learnArray()
 //    learnList()
 //    learnMap()
-    learnClass()
+//    learnClass()
+//    learnLambda()
+    learnCallBack()
 
 }
 
@@ -608,6 +610,73 @@ fun learnClass(){
 
 
 }
+
+fun learnLambda(){
+    println("----13.Learning Lambda----")
+    //lamda syntex
+//    val lambdaName: (InputType) -> ReturnType = { parameterName: InputType ->
+//        // body
+//    }
+
+    println("===Lambda with no parameters===")
+    val greet = { println("Hello!") }
+    greet()
+    println("\n")
+
+
+    println("===Lambda with one parameters===")
+    val square = { it: Int -> it * it }
+    println(square(6))
+    //val square: (Int) -> Int = { it * it }
+
+
+    println("===Lambda with two parameters===")
+    // Define a lambda that adds two numbers
+    val add: (Int, Int) -> Int = { a, b -> a + b }
+    // Call the lambda
+    val result = add(5, 3)
+    println("The sum is: $result")
+
+    var multiply: (Int,Int) -> Int = {a,b  -> a*b}
+    val mulResult = multiply(5,3);
+    println("The multiply is: $mulResult")
+    println("\n")
+
+
+    println("===Lambda with no return ===")
+    val multiNoReturn: (Int) -> Unit = {println("the value is :"+ it * it)}
+    multiNoReturn(5)
+}
+
+fun learnCallBack(){
+    println("----14.Learning CallBack----")
+
+    println(" === Simple Call Back with no argument ===")
+    fun doSomething(arg: ()-> Unit){
+        println("This is before call back")
+        arg()
+    }
+
+    doSomething{
+        println("This is call back")
+    }
+
+    println(" === Simple Call Back with  argument ===")
+
+    fun doSum(c: Int, d: String,sum: (Int,Int) -> Int,){
+        println("This is before call back")
+        val result = sum(c,d.toInt())
+        println("The sum is: $result")
+        sum(10,20)
+    }
+
+    doSum(10,"5"){
+          a, b -> a + b
+    }
+
+}
+
+
 
 
 
